@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <title>This is my example homepage.</title>
+    </head>
+    <body>
+        <div id="myviz">
+        </div>
+    </body>
+    <script>
+        mySpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/chin28/chin28.github.io/main/building_inventory.csv"},
+        
+          "mark": "bar",
+          "encoding": {
+            "x": {
+              "field": "Agency Name", 
+              "type": "nominal"
+              
+            },
+            "y": {
+              "field": "Square Footage",
+              "aggregate": "count",
+              "type": "quantitative"
+            }
+          }
+}
+
+        vegaEmbed('#myviz', mySpec);
+    </script>
+</html>
